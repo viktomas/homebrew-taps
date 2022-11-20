@@ -5,20 +5,20 @@
 class Godu < Formula
   desc ""
   homepage ""
-  version "1.4.0"
+  version "1.4.1"
 
   on_macos do
-    if Hardware::CPU.intel?
-      url "https://github.com/viktomas/godu/releases/download/v1.4.0/godu_1.4.0_Darwin_x86_64.tar.gz"
-      sha256 "7935c45b986c1a72212249219a3985570039b88011244df8eafbe7595dedadc7"
+    if Hardware::CPU.arm?
+      url "https://github.com/viktomas/godu/releases/download/v1.4.1/godu_1.4.1_Darwin_arm64.tar.gz"
+      sha256 "dce7969b56537c2abf475ee394e76af6d1a1b0f412e62be2352906299e8f3d8e"
 
       def install
         bin.install "godu"
       end
     end
-    if Hardware::CPU.arm?
-      url "https://github.com/viktomas/godu/releases/download/v1.4.0/godu_1.4.0_Darwin_arm64.tar.gz"
-      sha256 "71dad2dd758dc51f223f0f759d799a2eab60b8a2b44be176143c1166937f8563"
+    if Hardware::CPU.intel?
+      url "https://github.com/viktomas/godu/releases/download/v1.4.1/godu_1.4.1_Darwin_x86_64.tar.gz"
+      sha256 "0bbaa0dd17a751c8aab27ba1f6a30a89398f616f06c0b4d791be8f5bc02591fb"
 
       def install
         bin.install "godu"
@@ -28,16 +28,16 @@ class Godu < Formula
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/viktomas/godu/releases/download/v1.4.0/godu_1.4.0_Linux_x86_64.tar.gz"
-      sha256 "b801cc55bf805d7449c29d4dfffee9102fe7de8204c940ee304f63c93b86e447"
+      url "https://github.com/viktomas/godu/releases/download/v1.4.1/godu_1.4.1_Linux_x86_64.tar.gz"
+      sha256 "26001c9e86044948eba7ddf7c2d7dab38015a7540400df21d76d01bfb8bdf059"
 
       def install
         bin.install "godu"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/viktomas/godu/releases/download/v1.4.0/godu_1.4.0_Linux_arm64.tar.gz"
-      sha256 "094497600b3072db05dd84193dfc0c25f95f899e0edb097924eb384d75c57aa1"
+      url "https://github.com/viktomas/godu/releases/download/v1.4.1/godu_1.4.1_Linux_arm64.tar.gz"
+      sha256 "eb3214ba5b31e778ad3501116730181e49d7809669195beff8a1c1267214589b"
 
       def install
         bin.install "godu"
