@@ -5,20 +5,20 @@
 class Godu < Formula
   desc ""
   homepage ""
-  version "1.4.1"
+  version "1.5.2"
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/viktomas/godu/releases/download/v1.4.1/godu_1.4.1_Darwin_arm64.tar.gz"
-      sha256 "dce7969b56537c2abf475ee394e76af6d1a1b0f412e62be2352906299e8f3d8e"
+    on_intel do
+      url "https://github.com/viktomas/godu/releases/download/v1.5.2/godu_1.5.2_darwin_amd64.tar.gz"
+      sha256 "ea3979ead720076945a4b3703cf07f31464744b3b69da60e5fffb8ff014b5502"
 
       def install
         bin.install "godu"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/viktomas/godu/releases/download/v1.4.1/godu_1.4.1_Darwin_x86_64.tar.gz"
-      sha256 "0bbaa0dd17a751c8aab27ba1f6a30a89398f616f06c0b4d791be8f5bc02591fb"
+    on_arm do
+      url "https://github.com/viktomas/godu/releases/download/v1.5.2/godu_1.5.2_darwin_arm64.tar.gz"
+      sha256 "0a80226e7ba043c1c58953899ca509f0bea2aa3c79c877ab630f1c4f387d6983"
 
       def install
         bin.install "godu"
@@ -27,20 +27,24 @@ class Godu < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/viktomas/godu/releases/download/v1.4.1/godu_1.4.1_Linux_x86_64.tar.gz"
-      sha256 "26001c9e86044948eba7ddf7c2d7dab38015a7540400df21d76d01bfb8bdf059"
+    on_intel do
+      if Hardware::CPU.is_64_bit?
+        url "https://github.com/viktomas/godu/releases/download/v1.5.2/godu_1.5.2_linux_amd64.tar.gz"
+        sha256 "17017e52f2b36aa41697ecf556c4f41a53e8fa34da49494aa2129d7384e8fec4"
 
-      def install
-        bin.install "godu"
+        def install
+          bin.install "godu"
+        end
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/viktomas/godu/releases/download/v1.4.1/godu_1.4.1_Linux_arm64.tar.gz"
-      sha256 "eb3214ba5b31e778ad3501116730181e49d7809669195beff8a1c1267214589b"
+    on_arm do
+      if Hardware::CPU.is_64_bit?
+        url "https://github.com/viktomas/godu/releases/download/v1.5.2/godu_1.5.2_linux_arm64.tar.gz"
+        sha256 "2a16dbea0e5ec66bfc5bbed55679ede5ce2b4c33ef782827f7d27b1d597f0e38"
 
-      def install
-        bin.install "godu"
+        def install
+          bin.install "godu"
+        end
       end
     end
   end
